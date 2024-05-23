@@ -1,17 +1,16 @@
 ﻿namespace SFmodule17FinalProject
 {
-    public abstract class Account
+    public abstract class Account : IAccount
     {
         // тип учетной записи
-        private protected string _type;
-        public virtual string Type { get; }
+        public string Type { get; }
 
         // баланс учетной записи
         public double Balance { get; set; }
 
         // процентная ставка
-        private protected double _interest;
-        public virtual double Interest{ get; }
+        public double Interest { get; set; }
 
+        public virtual void CalculateInterest() { }
     }
 }

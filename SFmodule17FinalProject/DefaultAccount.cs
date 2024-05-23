@@ -1,36 +1,17 @@
-﻿namespace SFmodule17FinalProject
+﻿using System.Security.Principal;
+
+namespace SFmodule17FinalProject
 {
     public class DefaultAccount : Account
     {
-        public DefaultAccount(double Balance) 
+        public override void CalculateInterest()
         {
-            _type = "Обычный";
-            this.Balance = Balance;
-            _interest = Interest;
-        }
+            Interest = Balance * 0.4;
+            if (Balance < 1000)
+                Interest -= Balance * 0.2;
 
-        public override string Type
-        {
-            get
-            {
-                return _type;
-            }
-            
-        }
-
-        public override double Interest
-        {
-            get
-            {
-                _interest = Balance * 0.4;
-
-                if (Balance < 1000)
-                    _interest -= Balance * 0.2;
-
-                if (Balance >= 1000)
-                    _interest -= Balance * 0.4;
-                return _interest;
-            }
+            if (Balance >= 1000)
+                Interest -= Balance * 0.4;
         }
     }
 }

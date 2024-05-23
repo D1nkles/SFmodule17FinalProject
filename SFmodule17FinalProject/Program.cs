@@ -4,11 +4,19 @@
     {
         static void Main(string[] args)
         {
-            var defaultAccount = new DefaultAccount(100);
-            var salaryAccount = new SalaryAccount(500);
+            var defaultAccount = new DefaultAccount() { Balance = 1250 };
+            var defaultAccount2 = new DefaultAccount() { Balance = 420 };
 
-            Console.WriteLine(defaultAccount.Interest + " " + defaultAccount.Type);
-            Console.WriteLine(salaryAccount.Type + " " + salaryAccount.Interest);
+            var salaryAccount = new SalaryAccount() { Balance = 500 };
+
+            Calculator.CalculateInterest(defaultAccount);
+            Console.WriteLine(defaultAccount.Interest);
+
+            Calculator.CalculateInterest(defaultAccount2);
+            Console.WriteLine(defaultAccount2.Interest);
+
+            Calculator.CalculateInterest(salaryAccount);
+            Console.WriteLine(salaryAccount.Interest);
         }
     }
 }
